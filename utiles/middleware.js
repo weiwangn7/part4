@@ -1,4 +1,4 @@
-const { info, err } = require('./logger');
+const { info, error } = require('./logger');
 
 //REQUEST LOGGER
 const requestLogger = (req, res, next) => {
@@ -18,7 +18,7 @@ const unknownEndpoint = (req, res) => {
 
 //ERROR HANDLING
 const errorhandler = (err, req, res, next) => {
-  err(err.message);
+  error(err.message);
 
   if (err.name === 'CastError') {
     return res.status(400).send({
