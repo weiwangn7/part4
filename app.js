@@ -1,5 +1,5 @@
 const { URL } = require('./utiles/config');
-const { info, err } = require('./utiles/logger');
+const { info, error } = require('./utiles/logger');
 const { requestLogger, unknownEndpoint, errorhandler } = require('./utiles/middleware');
 const blogsRouter = require('./controllers/blogs');
 const express = require('express');
@@ -13,7 +13,7 @@ mongoose
   .then(() => {
     info('Connected to MongoDB');
   })
-  .catch(err => err(err));
+  .catch(err => error(err));
 
 app.use(cors());
 // app.use(express.static('build'));
